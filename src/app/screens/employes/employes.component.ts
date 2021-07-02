@@ -18,8 +18,8 @@ export class EmployesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.employeService.getEmployes().subscribe(data => {
-      console.log(data);
+    this.employeService.getEmployes().subscribe((data: any) => {
+      this.employes = data.employes;
     }, (error: HttpErrorResponse) => {
       if (error.status == 401) {
         this.router.navigate(['/signin']);
